@@ -45,21 +45,32 @@ public class Hitandblow {
 
 	//四桁のバラバラの数字生成メソッド
 	public static int[] randomGeneration(){
-		int[] randomArray = new int[9];
+		int[] randomArray = new int[]{0,1,2,3,4,5,6,7,8,9}; // 0~9までの要素の中身をもった配列を用意
 		int[] fourArray = new int[4];
-		for(int i = 0; i < randomArray.length; i++){
-			randomArray[i] = i +1;
-		}
+
+
+		//4回分 0-9の数字をランダムに入れ替えを行い、バラバラの4桁を作成
+		// 先頭(インデックス0の要素の中身)は0が入っているので、先頭は入れ替えにて、必ず0以外の数字になる
 		for(int i = 0; i < fourArray.length; i++){
-			int n = new java.util.Random().nextInt(9);
-			int tmp = fourArray[i];
-			fourArray[i] = randomArray[n];
+			//ランダムにIndex (0-8)を用意 : randomArrayの要素の指定に使用する。
+			// 入れ替えたところは、入れ替えを行たくないので、2週目は、1~9をIndex,3周目は2~9となるように、ランダムのnを設定。
+			int n = new java.util.Random().nextInt(9 - i) + i;
+			int tmp = randomArray[i];
+			randomArray[i] = randomArray[n];
 			randomArray[n] = tmp;
 		}
+		// 先頭のランダムな4つの数字の配列として返す為、fourArrayに全て代入
+		for(int i = 0; i < fourArray.length; i++){
+			fourArray[i] = randomArray[i];
+		}
+
+		// 確認用
 		for(int value : fourArray){
 			System.out.print(value);
 		}
 		System.out.println("←確認用");
+
+
 		return fourArray;
 	}
 
