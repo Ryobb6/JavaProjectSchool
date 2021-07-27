@@ -8,7 +8,8 @@ public class Q01 {
 		pokemon[1] = new Pokemon("ぜにがめ",50);
 		pokemon[2] = new Pokemon("フシギダネ",200);
 
-		//if(Math.max(pokemon[0].getHp(), Math.max(pokemon[1].getHp(), pokemon[2].getHp())))
+		// if(Math.max(pokemon[0].getHp(), Math.max(pokemon[1].getHp(), pokemon[2].getHp())))
+		// ポケモンのHPにより並べ替え
 
 		for(int i = 0; i < pokemon.length - 1; i++){
 			for(int j = i + 1; j < pokemon.length;j++){
